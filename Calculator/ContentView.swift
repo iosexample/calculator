@@ -16,6 +16,7 @@ struct CalculatorButtonRow: View {
         CalculatorButton(
           title: item.title,
           size: item.size,
+          foregroundColor: item.foregroundColor,
           backgroundColorName: item.backgroundColorName) {
             print("Button:\(item.title)")
         }
@@ -26,15 +27,29 @@ struct CalculatorButtonRow: View {
 
 struct ContentView: View {
   var body: some View {
-    VStack(spacing: 8) {
+    VStack(spacing: 12) {
+      Spacer()
+      Text("0123456789012345678")
+        .font(.system(size:76))
+        .minimumScaleFactor(0.5)
+        .padding(.trailing, 24)
+        .lineLimit(1)
+        .frame(
+          minWidth:0,
+          maxWidth: .infinity,
+          alignment: .trailing)
       CalculatorButtonPad()
+        .padding(.bottom)
     }
   }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+      Group {
+        ContentView().colorScheme(.light)
+//        ContentView().previewDevice("iPhone SE").scaleEffect(UIScreen.main.bounds.width/414)
+      }
     }
 }
 
@@ -42,6 +57,7 @@ struct CalculatorButton: View {
   let fontSize: CGFloat = 38
   let title: String
   let size: CGSize
+  let foregroundColor: Color
   let backgroundColorName: String
   let action: () -> Void
   
@@ -49,7 +65,7 @@ struct CalculatorButton: View {
     Button(action: action) {
       Text(title)
         .font(.system(size:fontSize))
-        .foregroundColor(.white)
+        .foregroundColor(foregroundColor)
         .frame(width:size.width, height:size.height)
         .background(Color(backgroundColorName))
         .cornerRadius(size.width / 2)

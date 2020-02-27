@@ -6,7 +6,7 @@
 //  Copyright © 2020 DONG. All rights reserved.
 //
 
-import CoreGraphics
+import SwiftUI
 
 enum CalculatorButtonItem {
   enum Op: String {
@@ -51,6 +51,13 @@ extension CalculatorButtonItem {
     case .digit, .dot: return "digit.background"
     case .op: return "operator.background"
     case .command: return "command.background"
+    }
+  }
+  
+  var foregroundColor: Color {
+    switch self {
+    case .command: return Color("command.foreground")
+    default: return .white
     }
   }
 }
