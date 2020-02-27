@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F618AAF6240790AE002152C1 /* CalculatorButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F618AAF5240790AE002152C1 /* CalculatorButtonItem.swift */; };
 		F642F6452405622100B5BE19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642F6442405622100B5BE19 /* AppDelegate.swift */; };
 		F642F6472405622100B5BE19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642F6462405622100B5BE19 /* SceneDelegate.swift */; };
 		F642F6492405622100B5BE19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F642F6482405622100B5BE19 /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F618AAF5240790AE002152C1 /* CalculatorButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonItem.swift; sourceTree = "<group>"; };
 		F642F6412405622100B5BE19 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F642F6442405622100B5BE19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F642F6462405622100B5BE19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				F642F64F2405622600B5BE19 /* LaunchScreen.storyboard */,
 				F642F6522405622600B5BE19 /* Info.plist */,
 				F642F64C2405622600B5BE19 /* Preview Content */,
+				F618AAF5240790AE002152C1 /* CalculatorButtonItem.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			files = (
 				F642F6452405622100B5BE19 /* AppDelegate.swift in Sources */,
 				F642F6472405622100B5BE19 /* SceneDelegate.swift in Sources */,
+				F618AAF6240790AE002152C1 /* CalculatorButtonItem.swift in Sources */,
 				F642F6492405622100B5BE19 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
