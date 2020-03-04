@@ -37,7 +37,7 @@ struct ContentView: View {
     VStack(spacing: 12) {
       Spacer()
       Button("操作履历：\(model.history.count)") {
-        print(self.model.history)
+        print(self.model.historyDetail)
       }
       Text(model.brain.output)
         .font(.system(size:76))

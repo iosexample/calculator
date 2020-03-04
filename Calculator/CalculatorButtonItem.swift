@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-enum CalculatorButtonItem: CustomStringConvertible {
+enum CalculatorButtonItem {
   enum Op: String {
     case plus = "+"
     case minus = "-"

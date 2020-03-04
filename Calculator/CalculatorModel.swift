@@ -25,4 +25,8 @@ class CalculatorModel: ObservableObject {
     brain = brain.apply(item: item)
     history.append(item)
   }
+  
+  var historyDetail: String {
+    return history.map{ $0.title }.joined()
+  }
 }
