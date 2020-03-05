@@ -34,6 +34,7 @@ struct ContentView: View {
 //  @ObservedObject var model = CalculatorModel()
   @EnvironmentObject var model: CalculatorModel
   @State private var editingHistory = false
+  @State private var showingResult = false
   
   var body: some View {
     VStack(spacing: 12) {
@@ -45,7 +46,7 @@ struct ContentView: View {
         HistoryView(model: self.model)
       }
       Text(model.brain.output)
-        .font(.system(size:76))
+        .font(Font.system(size:76))
         .minimumScaleFactor(0.5)
         .padding(.trailing, 24)
         .lineLimit(1)
@@ -54,6 +55,14 @@ struct ContentView: View {
           maxWidth: .infinity,
           alignment: .trailing
         )
+        .onTapGesture {
+          self.showingResult = true
+        }.alert(isPresented: self.$showingResult) {
+          Alert(
+            title: Text(self.model.historyDetail),
+            message: Text(self.model.brain.output)
+          )
+        }
       CalculatorButtonPad()
         .padding(.bottom)
     }
