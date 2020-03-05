@@ -60,7 +60,11 @@ struct ContentView: View {
         }.alert(isPresented: self.$showingResult) {
           Alert(
             title: Text(self.model.historyDetail),
-            message: Text(self.model.brain.output)
+            message: Text(self.model.brain.output),
+            primaryButton: .destructive(Text("复制")) {
+              UIPasteboard.general.string = self.model.brain.output
+            },
+            secondaryButton: .cancel()
           )
         }
       CalculatorButtonPad()
