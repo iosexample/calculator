@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CalculatorButtonRow: View {
 //  @Binding var brain: CalculatorBrain
-  var model: CalculatorModel
+  @EnvironmentObject var model: CalculatorModel
   
   let row: [CalculatorButtonItem]
   var body: some View {
@@ -31,7 +31,8 @@ struct CalculatorButtonRow: View {
 struct ContentView: View {
   
 //  @State private var brain: CalculatorBrain = .left("0")
-  @ObservedObject var model = CalculatorModel()
+//  @ObservedObject var model = CalculatorModel()
+  @EnvironmentObject var model: CalculatorModel
   @State private var editingHistory = false
   
   var body: some View {
@@ -53,7 +54,7 @@ struct ContentView: View {
           maxWidth: .infinity,
           alignment: .trailing
         )
-      CalculatorButtonPad(model: model)
+      CalculatorButtonPad()
         .padding(.bottom)
     }
   }
@@ -62,7 +63,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
       Group {
-        ContentView().colorScheme(.light)
+        ContentView().environmentObject(CalculatorModel())
+//        ContentView().colorScheme(.light)
 //        ContentView().previewDevice("iPhone SE").scaleEffect(UIScreen.main.bounds.width/414)
       }
     }
@@ -90,7 +92,7 @@ struct CalculatorButton: View {
 
 struct CalculatorButtonPad: View {
 //  @Binding var brain: CalculatorBrain
-  var model: CalculatorModel
+//  var model: CalculatorModel
   
   
   let pad:[[CalculatorButtonItem]] = [
@@ -103,7 +105,7 @@ struct CalculatorButtonPad: View {
   var body: some View {
     VStack(spacing: 8) {
       ForEach(pad, id:\.self) { row in
-        CalculatorButtonRow(model: self.model, row: row)
+        CalculatorButtonRow(row: row)
       }
     }
   }
