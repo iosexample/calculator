@@ -32,12 +32,16 @@ struct ContentView: View {
   
 //  @State private var brain: CalculatorBrain = .left("0")
   @ObservedObject var model = CalculatorModel()
+  @State private var editingHistory = false
   
   var body: some View {
     VStack(spacing: 12) {
       Spacer()
       Button("操作履历：\(model.history.count)") {
         print(self.model.historyDetail)
+        self.editingHistory = true
+      }.sheet(isPresented: self.$editingHistory) {
+        HistoryView(model: self.model)
       }
       Text(model.brain.output)
         .font(.system(size:76))
@@ -102,5 +106,30 @@ struct CalculatorButtonPad: View {
         CalculatorButtonRow(model: self.model, row: row)
       }
     }
+  }
+}
+
+struct HistoryView: View {
+  @ObservedObject var model: CalculatorModel
+  var body: some View {
+    VStack {
+      if model.totalCount == 0 {
+        Text("没有历史")
+      } else {
+        HStack {
+          Text("历史：").font(.headline)
+          Text(model.historyDetail).lineLimit(nil)
+        }
+        HStack {
+          Text("显示").font(.headline)
+          Text(model.brain.output)
+        }
+        Slider(
+          value: $model.slidingIndex,
+          in: 0...Float(model.totalCount),
+          step: 1
+        )
+      }
+    }.padding()
   }
 }
