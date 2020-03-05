@@ -126,6 +126,8 @@ struct CalculatorButtonPad: View {
 
 struct HistoryView: View {
   @ObservedObject var model: CalculatorModel
+  @Environment(\.presentationMode) var presentationMode
+  
   var body: some View {
     VStack {
       if model.totalCount == 0 {
@@ -144,6 +146,9 @@ struct HistoryView: View {
           in: 0...Float(model.totalCount),
           step: 1
         )
+      }
+      Button("关闭") {
+        self.presentationMode.wrappedValue.dismiss()
       }
     }.padding()
   }
